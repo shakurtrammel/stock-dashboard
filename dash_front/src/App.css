@@ -1,0 +1,12 @@
+/*Reset settings*/
+*{ 
+  margin: 0px;
+  padding: 0px;
+ }
+
+ /*Overall page styles*/
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+}
+ 

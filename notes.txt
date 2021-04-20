@@ -1,0 +1,206 @@
+//import logo from './logo.svg';
+
+/*
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
+}
+*/
+
+
+ .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+new_quote = Quote(
+        symbol = data['symbol'],
+        name = data['companyName'],
+        exchange = data['primaryExchange'],
+        date = data['latestTime'],
+        price = data['latestPrice'],
+        w52high = data['week52High'],
+        w52low = data['week52Low'],
+        ytdchange = data['ytdChange'],
+        marketcap = data['marketCap'],
+        volume = data['latestVolume'],
+        peratio = data['peRatio'],
+        popen = data['open'],
+        low = data['low'],
+        high = data['high'],
+        close = data['close'],
+    )
+    new_quote.save()
+
+    context = {
+        'symbol': data['symbol'],
+        'name': data['companyName'],
+        'exchange': data['primaryExchange'],
+        'date': data['latestTime'],
+        'price': data['latestPrice'],
+        'w52high': data['week52High'],
+        'w52low': data['week52Low'],
+        'ytdchange': data['ytdChange'],
+        'marketcap': data['marketCap'],
+        'volume': data['latestVolume'],
+        'peratio': data['peRatio'],
+        'popen': data['open'],
+        'low': data['low'],
+        'high': data['high'],
+        'close': data['close'],
+    }
+
+    
+//
+def csrf(request):
+    return JsonResponse({'csrfToken': get_token(request)})
+
+def ping(request):
+    return JsonResponse({'result': 'OK'})
+
+
+//
+const API_HOST = 'http://localhost:8000';
+
+let _csrfToken = null;
+
+async function getCsrfToken() {
+  if (_csrfToken === null) {
+    const response = await fetch(`${API_HOST}/csrf/`, {
+      credentials: 'include',
+    });
+    const data = await response.json();
+    _csrfToken = data.csrfToken;
+  }
+  return _csrfToken;
+}
+
+async function testRequest(method) {
+  const response = await fetch(`${API_HOST}/ping/`, {
+    method: method,
+    headers: (
+      method === 'POST'
+        ? {'X-CSRFToken': await getCsrfToken()}
+        : {}
+    ),
+    credentials: 'include',
+  });
+  const data = await response.json();
+  return data.result;
+}
+
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      testGet: 'KO',
+      testPost: 'KO',
+    };
+  }
+
+  async componentDidMount() {
+    this.setState({
+      testGet: await testRequest('GET'),
+      testPost: await testRequest('POST'),
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <p>Test GET request: {this.state.testGet}</p>
+        <p>Test POST request: {this.state.testPost}</p>
+      </div>
+    );
+  }
+}
+
+
+//
+ {this.state.data.map(quote => <div>{quote.symbol}</div>)}
+
+
+ <DataSpan>{props.data[0].symbol}</DataSpan>
+                <LabelSpan>Symbol</LabelSpan>
+                <DataSpan>{props.data[0].name}</DataSpan>
+                <LabelSpan>Company Name</LabelSpan>
+                <DataSpan>{props.data[0].price}</DataSpan>
+                <LabelSpan>Latest Price</LabelSpan>
+                <DataSpan>{props.data[0].exchange}</DataSpan>
+                <LabelSpan>Exchange</LabelSpan>
+
+
+//
+axios
+    .get("http://localhost:8000/api/quotes/")
+    .then((res) => this.setState({data: res.data}))
+    .catch((err) => console.log(err))
+
+
+fetch("http://localhost:8000/api/quotes/")
+  .then(res => res.json())
+  .then(
+    (result) => {this.setState({isLoaded: true, data: result.items});},
+    (error) => {this.setState({isLoaded: true, error});}
+  )
+
+
+  //
+  #response = requests.get('https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_ea99ae74f7a645549cb3d3a38ac1007a')
+    #data = response.json()
+
+
+    
