@@ -1,0 +1,70 @@
+/* Reset Settings */
+* { 
+margin: 0px;
+padding: 0px;
+}
+
+
+/* Regisration & Login Page Styles */
+body {
+font-family: 'Inter', sans-serif;
+font-size: 15px;
+}
+#page-wrapper {
+    width: 610px;
+    padding:30px;
+    margin: 70px auto;
+}
+.messages {
+    margin: 10px 0;
+    list-style: none;
+    font-weight: 400;
+    font-style: italic;
+    color: red;
+}
+#content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px auto;
+}
+form {
+    padding: 20px;
+    border: 3px solid black;
+}
+form h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12pt;
+}
+form div {
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+form div input {
+    height: 20px;
+}
+.reg-btn {
+    width: 80px;
+    height: 25px;
+    border: 2px solid black;
+    box-shadow: 2px 2px black;
+    margin:5px 0 0 167px;
+    font-weight: 600;
+    background-color: white;
+}
+.login-btn {
+width: 80px;
+height: 25px;
+border: 2px solid black;
+box-shadow: 2px 2px black;
+margin: 5px 0 0 190px;
+font-weight: 600;
+background-color: white;
+}
+
+

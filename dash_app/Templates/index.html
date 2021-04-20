@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>S-Dash App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'loginstyles.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-    <body>
-        <div>{{ low }}</div>
-    </body>
+<body>
+    <div id="page-wrapper">
+        <header>
+            <h1>Welcome! Sign in to S-Dash.</h1>
+        </header>
+        <main>
+            <header>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %} 
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </header>
+            <div id="content-wrapper">
+                <section id="registration-section">
+                    <form action="/register" method="POST">
+                        {% csrf_token %}
+                        <h2>Register</h2>
+                        <div>
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" size="15">
+                        </div>
+                        <div>
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" size="15">
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="text" name="email" size="15">
+                        </div>
+                        <div>
+                            <label for="rpassword">Password</label>
+                            <input type="text" name="rpassword" size="15">
+                        </div>
+                        <div>
+                            <label for="conf_pass">Confirm PW</label>
+                            <input type="text" name="conf_pass" size="15">
+                        </div>
+                        <div>
+                            <input type="submit" value="Register" class="reg-btn">
+                        </div>
+                    </form>
+                </section>
+                <section id="login-section">
+                    <form action="/login" method="POST">
+                        {% csrf_token %}
+                        <h2>Login</h2>
+                        <div>
+                            <label for="lemail">Email</label>
+                            <input type="text" name="lemail" size="15">
+                        </div>
+                        <div>
+                            <label for="lpassword">Password</label>
+                            <input type="text" name="lpassword" size="15">
+                        </div>
+                        <div>
+                            <input type="submit" value="Log In" class="login-btn">
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
 </html>
