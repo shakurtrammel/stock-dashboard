@@ -1,5 +1,5 @@
 import './App.css';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import axios from 'axios';
 import InitialLoad from './Components/InitialLoad.js';
