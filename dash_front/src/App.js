@@ -1,6 +1,8 @@
 import './App.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import axios from 'axios';
+import InitialLoad from './Components/InitialLoad.js';
 import PageWrapper from './Components/PageWrapper.js';
 import MainWrap from './Components/MainWrap.js';
 import S1Wrap from './Components/S1Wrap.js';
@@ -24,12 +26,14 @@ class App extends React.Component {
     }
   };
 
- async componentDidMount() {
-      await axios
+
+ componentDidMount() {
+      axios
         .get("http://localhost:8000/api/quotes/")
         .then((res) => {this.setState({data: res.data, isLoaded: true})})
         .catch((err) => console.log(err))
   }
+
 
 
   render() {
@@ -38,7 +42,7 @@ class App extends React.Component {
       return <div>Error: {error.message}</div>;
     }
     else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return ( <InitialLoad />);
     }
     else {
       return (
@@ -57,6 +61,6 @@ class App extends React.Component {
       );
     }  
   }
-  }
+}
 
 export default App;
