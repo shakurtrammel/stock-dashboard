@@ -45,9 +45,9 @@ class QuoteManager(models.Manager):
 
 class User(models.Model):
     fname = models.CharField(max_length=255)
-    fname = models.CharField(max_length=255)
-    fname = models.CharField(max_length=255)
-    fname = models.CharField(max_length=255)
+    lname = models.CharField(max_length=255, null=True)
+    email = models.CharField(max_length=255, null=True)
+    password = models.CharField(max_length=255, null=True)
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now_add=True)
     objects = UserManager()

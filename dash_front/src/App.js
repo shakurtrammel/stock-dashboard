@@ -9,7 +9,7 @@ import Header from './Components/Header.js';
 import Profile from './Components/Profile';
 import Week52 from './Components/Week52';
 import Indicator from './Components/Indicator.js';
-//import PriceChart from './Components/PriceChart.js';
+import PriceChart from './Components/PriceChart.js';
 
 
 
@@ -24,17 +24,16 @@ class App extends React.Component {
     }
   };
 
-  componentDidMount() {
-      axios
+ async componentDidMount() {
+      await axios
         .get("http://localhost:8000/api/quotes/")
-        .then((res) => { console.log(res); this.setState({data: res.data, isLoaded: true})})
+        .then((res) => {this.setState({data: res.data, isLoaded: true})})
         .catch((err) => console.log(err))
-    console.log(this.state);
   }
 
 
   render() {
-    const { error, isLoaded, data } = this.state;
+    const { error, isLoaded } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     }
@@ -48,10 +47,11 @@ class App extends React.Component {
           <MainWrap>
             <Header />
             <S1Wrap>
-              <Profile data={data} />
-              <Week52 data={data} />
-              <Indicator data={data} />
+              <Profile data={this.state.data} />
+              <Week52 data={this.state.data} />
+              <Indicator data={this.state.data} />
             </S1Wrap>
+            <PriceChart />
           </MainWrap>
         </PageWrapper>
       );

@@ -1,26 +1,28 @@
-import React from 'react';
-import { VictoryChart, VictoryArea }from 'victory';
+import React, { useEffect } from 'react';
+import * as d3 from 'd3';
 
 
 
-  const PriceChart = (props) => {
-      return (
-        <VictoryChart height={150}>
-            <VictoryArea
-                data={[ 
-                    { x: 1, y: 2, y0: 0 },
-                    { x: 2, y: 3, y0: 0 },
-                    { x: 3, y: 5, y0: 0 },
-                    { x: 4, y: 4, y0: 0 },
-                ]}
-                style={{
-                    data: {
-                        fill: "#372f7f", fillOpacity: 0.7, stroke: "#6d59bb", strokeWidth: 2
-                    }
-                }}
-            />
-        </VictoryChart>
-      );
-  }
+const drawChart = (width, height) => {
+    d3.select("#chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .style("border", "1px solid black")
+        .append("text")
+        .attr("fill", "white")
+        .attr("x", 50)
+        .attr("y", 50)
+        .text("Hello D3")
+}
 
-  export default PriceChart;
+const PriceChart = () => {
+    useEffect( () => { drawChart(200, 200)}, []);
+    return (
+        <div>
+            <div id="chart"></div>
+        </div>
+    );
+}
+
+export default PriceChart;

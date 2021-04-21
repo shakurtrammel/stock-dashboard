@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Quote
+from .models import Quote, User
 
 
 class QuoteAdmin(admin.ModelAdmin):
@@ -22,6 +22,15 @@ class QuoteAdmin(admin.ModelAdmin):
         'close',
     )
 
+class UserAdmin(admin.ModelAdmin):
+    user_display = (
+        'fname',
+        'lname',
+        'email',
+        'password',
+    )
+
 # Registering the models here.
 
 admin.site.register(Quote, QuoteAdmin)
+admin.site.register(User, UserAdmin)

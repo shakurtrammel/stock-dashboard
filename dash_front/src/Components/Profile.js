@@ -16,7 +16,6 @@ const ProfileDiv = styled.div`
 
 
 const Profile = (props) => {
-    console.log(props);
     return (
         <S1Container>
              <ProfileDiv>

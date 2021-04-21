@@ -53,6 +53,7 @@ def logout(request):
     return redirect("/")
 
 
+
 # Login Page View
 def index(request):
     return render(request, 'index.html')
@@ -66,7 +67,7 @@ def dashboard(request):
 @ensure_csrf_cookie
 def quote(request):
     symbol = request.POST['search']
-    response = requests.get(f'https://cloud.iexapis.com/stable/stock/{symbol}/quote?token=pk_84a9cc62c48745ee8c931af085b08166')
+    response = requests.get(f'https://sandbox.iexapis.com/stable/stock/{symbol}/quote?token=Tpk_ea99ae74f7a645549cb3d3a38ac1007a')
     data = response.json()
     update = Quote.objects.get(id=1)
     update.symbol = data['symbol']

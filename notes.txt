@@ -202,5 +202,3 @@ fetch("http://localhost:8000/api/quotes/")
   #response = requests.get('https://sandbox.iexapis.com/stable/stock/IBM/quote?token=Tpk_ea99ae74f7a645549cb3d3a38ac1007a')
     #data = response.json()
 
-
-    
